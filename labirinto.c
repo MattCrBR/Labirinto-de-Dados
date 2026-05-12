@@ -106,6 +106,17 @@ int labirinto_carregar(Labirinto *lab, const char *caminho_arquivo){
 }
 
 /*funcoes de acesso a matriz usando linha*colunas+col
+ex: 4x4
+[#][#][#][#]   -> índices 0,1,2,3
+[#][P][ ][#]   -> índices 4,5,6,7
+[#][ ][ ][S]   -> índices 8,9,10,11
+[#][#][#][#]   -> índices 12,13,14,15
+se quiser acessar a posicao (1,2) - linha 1, coluna 2:
+1 * 4 + 2 = 6 -> celulas[6] = ' '
+
+posicao(2,3) - linha 2, coluna 3:
+2 * 4 + 3 = 11 -> celulas[11] = 'S'
+
 o get retorna o caractere, o set modifica */
 char labirinto_get(Labirinto *lab, int linha, int col){
 	return lab->celulas[linha*lab->colunas + col];	
